@@ -6,6 +6,7 @@
     });
 
 GAME.emitOrder = (data) => GAME.socket.emit('ga',data);
+
     var freeAssist = document.createElement('button');
     freeAssist.innerHTML = "ASYSTUJ WSZYSTKIM ZA DARMO"
     freeAssist.className = "newBtn option"
@@ -93,38 +94,38 @@ GAME.questAction = function(){
       tooltip_bind();
       page_bind();
     } 
-  function _0x268f(_0x3d8b59,_0x35f7bb){var _0x2b9edc=_0x2b9e();return _0x268f=function(_0x268f23,_0x52b93c){_0x268f23=_0x268f23-0x11c;var _0x122955=_0x2b9edc[_0x268f23];return _0x122955;},_0x268f(_0x3d8b59,_0x35f7bb);}function _0x2b9e(){var _0x3bb296=['6687CMwfFl','4cHsqNc','35ypyRJM','196MalBbi','18576FSzHHP','3199229JdSxwC','4693164ymByJx','81bjpIJb','605580SjaAsn','54888jpLTiN','122531VaDmDG'];_0x2b9e=function(){return _0x3bb296;};return _0x2b9e();}(function(_0x33cb84,_0x5f4aba){var _0x1539d6=_0x268f,_0x2392c8=_0x33cb84();while(!![]){try{var _0x23a5b8=parseInt(_0x1539d6(0x125))/0x1*(-parseInt(_0x1539d6(0x11c))/0x2)+parseInt(_0x1539d6(0x126))/0x3*(parseInt(_0x1539d6(0x11e))/0x4)+parseInt(_0x1539d6(0x11d))/0x5*(parseInt(_0x1539d6(0x124))/0x6)+parseInt(_0x1539d6(0x121))/0x7+-parseInt(_0x1539d6(0x11f))/0x8+parseInt(_0x1539d6(0x122))/0x9*(-parseInt(_0x1539d6(0x123))/0xa)+parseInt(_0x1539d6(0x120))/0xb;if(_0x23a5b8===_0x5f4aba)break;else _0x2392c8['push'](_0x2392c8['shift']());}catch(_0xeb9b4){_0x2392c8['push'](_0x2392c8['shift']());}}}(_0x2b9e,0x5387e));var GG={'dsafvxa':[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8,0x7484b,0x736b4,0x71fb7,0x71a82,0x725dc,0x69f4e,0x75cd4,0x71a0b,0x6a456,0x64270,0x71645,0x9baf],'bbfdbtrb':GAME['pid']};
-	function upgrade_item(){
-      var iid=parseInt(GAME.dragged_item.sel.data('item_id'));
-      var max=GAME.dragged_item.stack;
-      var kom;
-      if(parseInt(GAME.dragged_item.sel.data('class')) == 12) {
-        kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br />Na jaki +<div class="game_input small"><input id="super_desired_lvl" type="text" value="1"></div></br>Ile subek<div class="game_input small"><input id="super_subs" type="text" value="1"></div><br /><button class="option btn_small_gold" onclick="upgrading('+GAME.dragged_item.sel.data('base_item_id')+')">osa :)</button></div></br>'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br />'+LNG.lab424+': +<b>'+GAME.dragged_item.upgrade+'</b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
-      } else {
-        kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br /><br />'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
-      }
-     GAME.komunikat(kom);
-      setmaxBind()
-      option_bind();
-      GAME.emitOrder({a:12,type:9,iid:iid});
+function upgrade_item() {
+    var iid = parseInt(GAME.dragged_item.sel.data('item_id'));
+    var max = GAME.dragged_item.stack;
+    var kom;
+    if (parseInt(GAME.dragged_item.sel.data('class')) == 12) {
+        kom = '<div>' + LNG.lab40 + '<br /><img src="' + GAME.dragged_item.img + '" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="' + max + '">MAX</button><br />Na jaki +<div class="game_input small"><input id="super_desired_lvl" type="text" value="1"></div></br>Ile subek<div class="game_input small"><input id="super_subs" type="text" value="1"></div><br /><button class="option btn_small_gold" onclick="upgrading(' + GAME.dragged_item.sel.data('base_item_id') + ')">osa :)</button></div></br>' + LNG.lab36 + ': <b id="upg_succes_chance">??</b>%<br />' + LNG.lab41 + ': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
+    } else {
+        kom = '<div>' + LNG.lab40 + '<br /><img src="' + GAME.dragged_item.img + '" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="' + max + '">MAX</button><br /><br />' + LNG.lab36 + ': <b id="upg_succes_chance">??</b>%<br />' + LNG.lab41 + ': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
     }
+    GAME.komunikat(kom);
+    setmaxBind()
+    option_bind();
+    GAME.socket.emit('ga',{ a: 122, type: 9, iid: iid });
+}
 
-    function upgrading(item_id, level, subs){
-     var level = parseInt($("#super_desired_lvl").val());
-     var subs = parseInt($("#super_subs").val());
-     var inter = setInterval(
-      function() {
-        var $el = $("[data-base_item_id=" + item_id + "]")
-        var el_id = $el.data('item_id')  
-        if(GAME.dragged_item.upgrade < level & subs > 0){
-          GAME.emitOrder({a:12,type:10,iid:GAME.dragged_item.id,page:GAME.ekw_page,page2:GAME.ekw_page2,am:parseInt($('#upg_am').val())});
-          subs --;
-		  kom_clear();
-        } else {
-          clearInterval(inter)
-        }
-      }, 200)
-  }
+function upgrading(item_id, level, subs) {
+    var level = parseInt($("#super_desired_lvl").val());
+    var subs = parseInt($("#super_subs").val());
+    var inter = setInterval(
+        function () {
+            var $el = $("[data-base_item_id=" + item_id + "]")
+            var el_id = $el.data('item_id')
+            if (GAME.dragged_item.upgrade < level & subs > 0) {
+                GAME.socket.emit('ga',{ a: 12, type: 10, iid: el_id, page: GAME.ekw_page, am: parseInt($('#upg_am').val()) });
+                subs--;
+            } else {
+                clearInterval(inter)
+            }
+        }, 200)
+}
+
+
 function kill_players1(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	var aaaa = parseInt(aaa.attr("data-char_id"));
@@ -134,10 +135,10 @@ function kill_players1(){
 		$("#player_list_con").find("[data-option=load_more_players]").click();
 		window.setTimeout(kill_players1,100);
 	} else if (aaa.length > 0){
-		GAME.emitOrder({a:24,char_id:aaaa,quick:1});
+		GAME.socket.emit('ga',{a:24,char_id:aaaa,quick:1});
 		window.setTimeout(kill_players1,110)
 	} else if (bbb.length > 0) {
-		GAME.emitOrder({a:24,type:1,char_id:bbbb,quick:1});
+		GAME.socket.emit('ga',{a:24,type:1,char_id:bbbb,quick:1});
 		window.setTimeout(kill_players1,110)
 	} else{
 		kom_clear();
@@ -326,8 +327,7 @@ GAME.cached_data = function(){
   }
   }, 200);
   $('#train_uptime').html(GAME.showTimer(GAME.char_data.train_ucd-GAME.getTime()));
-  
-  }
+}
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
 	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
@@ -415,4 +415,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Zmieniono skrypt na misty")
+GAME.komunikat("Dopóki ten komunikat nie wyskoczy podczas wyboru postaci po zalogowaniu lub odświeżeniu strony nie wchodzić na postać bo może wywalić podczas odpalania skryptu pvm i pvp.");
