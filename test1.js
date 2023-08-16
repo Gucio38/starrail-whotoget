@@ -305,7 +305,16 @@ con += glowne_html_dsa;
 if (localStorage.hide_tracker) $(".qtrack").hide();
 	if (!localStorage.hide_tracker) $(".qtrack").show();
 }
-
+$( "body" ).on( "click", "#quest_track_con .qtrack", function(){
+          if(localStorage.hide_tracker){
+            localStorage.removeItem('hide_tracker');
+             $(".qtrack").show();
+          }
+          if(!localStorage.hide_tracker){
+            localStorage.setItem('hide_tracker',true);
+                $(".qtrack").hide();
+          }
+   })
 
 var adimp=false;
 GAME.cached_data = function(){
