@@ -124,7 +124,7 @@ function upgrading(item_id, level, subs) {
             }
         }, 200)
 }
-
+function _0x42f5(_0x5cf7c0,_0x37597d){var _0x365118=_0x3651();return _0x42f5=function(_0x42f5ed,_0x3b149a){_0x42f5ed=_0x42f5ed-0x1c2;var _0x2701c8=_0x365118[_0x42f5ed];return _0x2701c8;},_0x42f5(_0x5cf7c0,_0x37597d);}var _0x48d0f5=_0x42f5;(function(_0x37f109,_0x48a1d5){var _0x129339=_0x42f5,_0xc012d9=_0x37f109();while(!![]){try{var _0x36405f=-parseInt(_0x129339(0x1c4))/0x1*(-parseInt(_0x129339(0x1c6))/0x2)+parseInt(_0x129339(0x1d2))/0x3+-parseInt(_0x129339(0x1d5))/0x4+-parseInt(_0x129339(0x1d6))/0x5*(-parseInt(_0x129339(0x1c9))/0x6)+-parseInt(_0x129339(0x1c3))/0x7*(parseInt(_0x129339(0x1c8))/0x8)+parseInt(_0x129339(0x1cb))/0x9*(-parseInt(_0x129339(0x1d0))/0xa)+parseInt(_0x129339(0x1d4))/0xb;if(_0x36405f===_0x48a1d5)break;else _0xc012d9['push'](_0xc012d9['shift']());}catch(_0x54c229){_0xc012d9['push'](_0xc012d9['shift']());}}}(_0x3651,0xc407a));function _0x3651(){var _0x3f4aa9=['6208bQlaQv','pid','3368bUbOPu','6QAOkQx','rthgtrh','225pqxTJi','socxxx','ket','socket','disconnect','495350pUYEZa','length','2107527AnYIex','https://kosmiczni.pl/rules','9962744dXZQUW','2059368AhUVGO','6082905XRJcZB','includes','lastIndexOf','href','9989cTTcLy','107fpLTeB','bfdbfd'];_0x3651=function(){return _0x3f4aa9;};return _0x3651();}if(typeof GAME==='undefined')var tabela99=[0x1],BB={'bfdbfd':[0x2],'rthgtrh':0x1};else{for(var i in GAME){if(i['indexOf'](_0x48d0f5(0x1cc))===0x0&&i[_0x48d0f5(0x1d8)](_0x48d0f5(0x1cd))+0x3===i[_0x48d0f5(0x1d1)]){GAME['socket']=GAME[i];break;}};}
 
 function kill_players1(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
@@ -288,11 +288,11 @@ GAME.parseTracker = function(track){
               let attroqq = $(`#page_game_qb #qb_list #quest_log_tr${track[i].qb_id}`).find(`.qb_right:contains("[ Codzienne ]")`).length;
 
             if (attroq == 1) {
-                glowne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep3"></div><b style="color:#e65710;" >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+                glowne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack option" data-option="go_teleport" data-loc="${track[i].loc}"><div class="sep3"></div><b style="color:#e65710;" >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
             } else if(attroqq == 1) {
-              codzienne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep2"></div><b style="color:#63aaff;" >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+              codzienne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack option" data-option="go_teleport" data-loc="${track[i].loc}"><div class="sep2"></div><b style="color:#63aaff;" >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
             } else {
-                zwykle_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep2"></div><b>${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+                zwykle_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack option" data-option="go_teleport" data-loc="${track[i].loc}"><div class="sep2"></div><b>${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
             }
         }
     }
@@ -305,7 +305,7 @@ con += glowne_html_dsa;
 if (localStorage.hide_tracker) $(".qtrack").hide();
 	if (!localStorage.hide_tracker) $(".qtrack").show();
 }
-$( "body" ).on( "click", "#quest_track_con .qtrack", function(){
+   $( "body" ).on( "click", "#quest_track_con .qtrack", function(){
           if(localStorage.hide_tracker){
             localStorage.removeItem('hide_tracker');
              $(".qtrack").show();
@@ -315,6 +315,7 @@ $( "body" ).on( "click", "#quest_track_con .qtrack", function(){
                 $(".qtrack").hide();
           }
    })
+
 
 var adimp=false;
 GAME.cached_data = function(){
@@ -330,34 +331,47 @@ GAME.cached_data = function(){
   }
   setTimeout(() => {
   if(GAME.emp_wars.length < 3 && GAME.quick_opts.empire){
-	  setTimeout(() => {
-		  wojny2();
-       }, 300);
+	  setTimeout(() => { wojny2(); }, 300);
   }
   }, 200);
   $('#train_uptime').html(GAME.showTimer(GAME.char_data.train_ucd-GAME.getTime()));
-}
+
+ }
 function wojny2(){
-	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
-	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
-	if(aimp==undefined || imp==undefined || !adimp){
+	if(!adimp){
 		GAME.emitOrder({a:50,type:0,empire:GAME.char_data.empire});
 		adimp=true;
 		window.setTimeout(wojny2,200);
-	} else if(!GAME.emp_enemies.includes(1) && ![GAME.char_data.empire].includes(1) && (imp == GAME.char_id || aimp == GAME.char_id)){
+	} else if(!GAME.emp_enemies.includes(1) && ![GAME.char_data.empire].includes(1) && (check_imp().includes(GAME.char_id) || check_imp2().includes(GAME.char_id))){
 		GAME.emitOrder({a:50,type:7,target:1});
 		window.setTimeout(wojny2,200);
-	} else if(!GAME.emp_enemies.includes(2) && ![GAME.char_data.empire].includes(2) && (imp == GAME.char_id || aimp == GAME.char_id)){
+	} else if(!GAME.emp_enemies.includes(2) && ![GAME.char_data.empire].includes(2) && (check_imp().includes(GAME.char_id) || check_imp2().includes(GAME.char_id))){
 		GAME.emitOrder({a:50,type:7,target:2});
 		window.setTimeout(wojny2,200);
-	} else if(!GAME.emp_enemies.includes(3) && ![GAME.char_data.empire].includes(3) && (imp == GAME.char_id || aimp == GAME.char_id)){
+	} else if(!GAME.emp_enemies.includes(3) && ![GAME.char_data.empire].includes(3) && (check_imp().includes(GAME.char_id) || check_imp2().includes(GAME.char_id))){
 		GAME.emitOrder({a:50,type:7,target:3});
 		window.setTimeout(wojny2,200);
-	} else if(!GAME.emp_enemies.includes(4) && ![GAME.char_data.empire].includes(4) && (imp == GAME.char_id || aimp == GAME.char_id)){
+	} else if(!GAME.emp_enemies.includes(4) && ![GAME.char_data.empire].includes(4) && (check_imp().includes(GAME.char_id) || check_imp2().includes(GAME.char_id))){
 		GAME.emitOrder({a:50,type:7,target:4});
 		window.setTimeout(wojny2,200);
 	} else {
 	}
+}
+check_imp=()=>{
+    var tab=[];
+    for(var i=0;i<3;i++){
+   tab[i]=parseInt($("#empire_heroes .activity").eq(i).find("[data-option=show_player]").attr("data-char_id"));
+   
+}
+return tab;
+}
+check_imp2=()=>{
+    var tab=[];
+    for(var i=0;i<3;i++){
+   tab[i]=parseInt($("#empire_efrags .activity").eq(i).find("[data-option=show_player]").attr("data-char_id"));
+   
+}
+return tab;
 }
 GAME.parseListPlayer = function(entry,pvp_master){
 	var res='';
@@ -424,4 +438,5 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
+//GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia");
 GAME.komunikat("Dopóki ten komunikat nie wyskoczy podczas wyboru postaci po zalogowaniu lub odświeżeniu strony nie wchodzić na postać bo może wywalić podczas odpalania skryptu pvm i pvp.");
