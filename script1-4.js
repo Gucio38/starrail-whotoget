@@ -102,7 +102,7 @@ if (typeof GAME === 'undefined') { } else {
                 }, 1000);
                 this.setWebsiteBackground();
                 this.bindClickHandlers();
-                });
+        
             }
             isLogged(cb) {
                 let waitForID = setInterval(() => {
