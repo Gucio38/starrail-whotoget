@@ -102,7 +102,7 @@ if (typeof GAME === 'undefined') { } else {
                 }, 1000);
                 this.setWebsiteBackground();
                 this.bindClickHandlers();
-        
+                });
             }
             isLogged(cb) {
                 let waitForID = setInterval(() => {
@@ -2127,7 +2127,16 @@ if (typeof GAME === 'undefined') { } else {
                 }, 1000);
             }
         }
-        
+                const kws = new kwsv3(kwsLocalCharacters);
+        GAME.komunikat2 = function (kom) {
+            if (this.koms.indexOf(kom) == -1) {
+                if (this.komc > 50) this.komc = 40;
+                var ind = this.koms.push(kom) - 1;
+                JQS.kcc.append(`<div class="kom" style="top:130px; width:480px;"><div class="close_kom" data-ind="${ind}"><b>X</b></div><div class="content">${kom}</div></div>`);
+                this.komc++;
+                kom_close_bind();
+            }
+        }
         GAME.cached_data = function () {
             var pos = $('#char_buffs').offset();
             pos.left -= 75;
