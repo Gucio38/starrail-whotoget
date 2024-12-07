@@ -51,7 +51,7 @@ class KwsConnectionManager {
       clickFirstLogin() {
         console.log("KWS: attempt to login first step...");
         $("#cg_login_button1").eq(0).click();
-        setTimeout(this.clickSecondLogin, 15000);
+        setTimeout(this.clickSecondLogin, 5000);
       }
 
       clickSecondLogin() {
@@ -76,10 +76,10 @@ class KwsConnectionManager {
           if (allCharacters.length != 0) {
             this.login(disconnectedCharacterId);
           } else if ($("#server_choose").is(":visible")) {
-            setTimeout(this.clickSecondLogin, 60000);
+            setTimeout(this.clickSecondLogin, 10000);
             //this.clickSecondLogin();
           } else {
-            setTimeout(this.clickFirstLogin(), 60000);
+            setTimeout(this.clickFirstLogin(), 10000);
             //this.clickFirstLogin();
           }
         } else {
