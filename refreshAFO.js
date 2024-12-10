@@ -5,7 +5,7 @@ let refreshInterval;
 function checkRefresh() {
     const currentTimestamp = Date.now();
 
-    if (currentTimestamp - lastTimestamp > 5000 && isRunning) {
+    if (currentTimestamp - lastTimestamp > 15000 && isRunning) {
         lastTimestamp = currentTimestamp;
 
         const linkElement = document.querySelector('.qlink.load_afo');
